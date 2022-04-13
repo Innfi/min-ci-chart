@@ -1,0 +1,6 @@
+apiVersion: v2
+name: min-ci-app
+description: mvp for gitops
+type: application
+version: 0.1.0
+appVersion: "1.16.0"
