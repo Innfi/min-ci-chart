@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: runner
+  namespace: {{ .Values.namespace }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      name: runner
+  template:
+    metadata:
+      labels:
+        name: runner
+    spec:
+      containers:
+      - name: runner-instance
+        image: {{ .Values.image.repo }}
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        env:
+        - name: REDIS_URL
+          value: {{ .Values.redis.url }}
+        ports:
+        - containerPort: {{ .Values.port }}

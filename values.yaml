@@ -1,0 +1,12 @@
+namespace: innfi
+replicaCount: 2
+redisReplicaCount: 2
+port: 8080
+
+image:
+  repo: innfi/runner:latest
+  pullPolicy: Always
+  redisRepo: redis:latest
+
+redis:
+  url: redis://redis.innfi.svc.cluster.local:6379
